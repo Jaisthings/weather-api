@@ -31,7 +31,7 @@ public class WeatherController {
             responseEntity = new ResponseEntity<>(weather, HttpStatus.OK);
         } catch (IOException ie) {
             log.error("Exception while fetching weather information for {} - {}", city, ie.getMessage());
-            responseEntity = new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            responseEntity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return responseEntity;
     }
@@ -39,6 +39,6 @@ public class WeatherController {
     @CrossOrigin
     @GetMapping("/health")
     public ResponseEntity<Object> health() {
-        return new ResponseEntity<>(null, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
-public class WeatherControllerTest {
+class WeatherControllerTest {
 
     @InjectMocks
     WeatherController weatherController;
@@ -29,7 +29,7 @@ public class WeatherControllerTest {
     WeatherService weatherService;
 
     @Test
-    public void testHealth() {
+    void testHealth() {
         //given
         MockHttpServletRequest servletRequest = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(servletRequest));
@@ -40,7 +40,7 @@ public class WeatherControllerTest {
     }
 
     @Test
-    public void testGetCityWeatherReturnsCityWeather() throws IOException {
+    void testGetCityWeatherReturnsCityWeather() throws IOException {
         //given
         MockHttpServletRequest servletRequest = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(servletRequest));
@@ -55,7 +55,7 @@ public class WeatherControllerTest {
     }
 
     @Test
-    public void testGetCityWeatherReturnsNoDataOnException() throws IOException {
+    void testGetCityWeatherReturnsNoDataOnException() throws IOException {
         //given
         MockHttpServletRequest servletRequest = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(servletRequest));
@@ -66,7 +66,7 @@ public class WeatherControllerTest {
         ResponseEntity<CityWeather> responseEntity = weatherController.getCityWeather("");
 
         //then
-        assertThat(responseEntity.getBody()).isEqualTo(null);
+        assertThat(responseEntity.getBody()).isNull();
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(500);
 
     }

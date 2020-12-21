@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-public class WeatherServiceTest {
+class WeatherServiceTest {
 
     @InjectMocks
     WeatherService weatherService;
@@ -25,7 +25,7 @@ public class WeatherServiceTest {
     Call<CityWeather> call;
 
     @Test
-    public void testWeatherReturnsCityWeatherObject() throws IOException {
+    void testWeatherReturnsCityWeatherObject() throws IOException {
         //given
         when(openWeatherApi.getCityWeather(anyString(), any(), any())).thenReturn(call);
         when(call.execute()).thenReturn(Response.success(new CityWeather()));
@@ -34,6 +34,6 @@ public class WeatherServiceTest {
         CityWeather cityWeather = weatherService.weather("paris");
 
         //then
-        assertThat(cityWeather).isNotEqualTo(null);
+        assertThat(cityWeather).isNotNull();
     }
 }

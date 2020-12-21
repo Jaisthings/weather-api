@@ -16,7 +16,6 @@ class WeatherApplicationTests {
 
     @Test
     void contextLoads() {
-        assertThat(docket).isNotEqualTo(null);
+        assertThat(docket).isNotNull();
     }
-
 }
