@@ -2,4 +2,4 @@
 
 Backend for weather GUI. 
 
-A sample rest api that reads weather information from http://openweathermap.org/
+a sample rest api that reads weather information from http://openweathermap.org/
