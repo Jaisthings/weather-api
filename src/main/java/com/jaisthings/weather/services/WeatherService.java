@@ -35,6 +35,5 @@ public class WeatherService {
         this.openWeatherApi = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(baseEndpoint).build().create(OpenWeatherApi.class);
-
     }
 }
