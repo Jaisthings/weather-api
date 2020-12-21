@@ -19,12 +19,11 @@ public class WeatherService {
     private String authToken;
     @Value("${weather.endpoint:#{'environment.weather.endpoint'}}")
     private String baseEndpoint;
-    private final String units = "metric";
 
     private OpenWeatherApi openWeatherApi;
 
     public CityWeather weather(String city) throws IOException {
-        Response<CityWeather> response = openWeatherApi.getCityWeather(city,authToken,units).execute();
+        Response<CityWeather> response = openWeatherApi.getCityWeather(city,authToken,"metric").execute();
         log.info("{}",response.body());
         return response.body();
     }
