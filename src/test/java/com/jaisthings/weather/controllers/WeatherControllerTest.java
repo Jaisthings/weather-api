@@ -66,7 +66,7 @@ class WeatherControllerTest {
         ResponseEntity<CityWeather> responseEntity = weatherController.getCityWeather("");
 
         //then
-        assertThat(responseEntity.getBody()).isNotNull();
+        assertThat(responseEntity.getBody()).isNull();
         assertThat(responseEntity.getStatusCodeValue()).isEqualTo(500);
 
     }
